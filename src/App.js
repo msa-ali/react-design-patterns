@@ -1,24 +1,66 @@
-import logo from './logo.svg';
+
 import './App.css';
+import { SplitScreen } from './components/SplitScreen';
+import { RegularList } from './components/RegularList';
+import { people, products } from './data';
+import { SmallPersonListItem } from './components/people/SmallPersonListItem';
+import { LargePersonListItem } from './components/people/LargePersonListItem';
+import { SmallProductListItem } from './components/products/SmallProductListItem';
+import { LargeProductListItem } from './components/products/LargeProductListItem';
+import { NumberedList } from './components/NumberedList';
+import { Modal } from './components/Modal';
+
+const LeftHandComponent = () => {
+  return <h1 style={{ backgroundColor: 'green' }}>Left!</h1>
+}
+
+const RightHandComponent = () => {
+  return <p style={{ backgroundColor: 'red' }}>Right!</p>
+}
 
 function App() {
+  // Layout Components
+  /*return (
+    <SplitScreen
+      leftWeight={1}
+      rightWeight={3}
+    >
+      <LeftHandComponent />
+      <RightHandComponent />
+    </SplitScreen>
+  );*/
+
+  // return (
+  //   <>
+  //     <RegularList
+  //       items={people}
+  //       resourceName='person'
+  //       itemComponent={SmallPersonListItem}
+  //     />
+  //     <RegularList
+  //       items={people}
+  //       resourceName='person'
+  //       itemComponent={LargePersonListItem}
+  //     />
+  //     <NumberedList
+  //       items={products}
+  //       resourceName='product'
+  //       itemComponent={SmallProductListItem}
+  //     />
+  //     <RegularList
+  //       items={products}
+  //       resourceName='product'
+  //       itemComponent={LargeProductListItem}
+  //     />
+  //   </>
+  // );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Modal>
+          <LargeProductListItem product={products[0]} />
+      </Modal>
+    </>
   );
 }
 
